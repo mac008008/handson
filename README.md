@@ -20,25 +20,24 @@
   1. データの保管
 
 ### 1. VMを作成する
-*作成VMは以下の通り
-  *light.S1
-  *Ubuntsu Server 14.04 LTS 64-bit
-  *ホスト名：node-red
-  *グループ名：任意
-:warning: IDCFコントロール・パネル操作方法の詳細は、http://www.idcf.jp/help/cloud/guide/vm_create.htmlを参照
+  作成VMは以下の通り
+    *light.S1
+    *Ubuntsu Server 14.04 LTS 64-bit
+    *ホスト名：node-red
+    *グループ名：任意
+  :warning: IDCFコントロール・パネル操作方法の詳細は、http://www.idcf.jp/help/cloud/guide/vm_create.htmlを参照
 
 ### 2. サーバにセキュリティ設定をする
-ファイアウォール
-nodered MyIP Custom TCP 1880
-mqtt 0.0.0.0/0 Custom 1883 
-SSH MyIP SSH 22 
+  ファイアウォール
+    nodered MyIP Custom TCP 1880
+    mqtt 0.0.0.0/0 Custom 1883 
+    SSH MyIP SSH 22 
 
-ポートフォワード
-ssh TCP 22 TCP 22 node-red
-nodered TCP 1880 TCP 1880 node-red
-mqtt TCP 1883 TCP 1883 node-red
-
-:warning: IDCFコントロール・パネル操作方法の詳細は、http://www.idcf.jp/help/cloud/guide/nw_portforward.htmlを参照
+  ポートフォワード
+    ssh TCP 22 TCP 22 node-red
+    nodered TCP 1880 TCP 1880 node-red
+    mqtt TCP 1883 TCP 1883 node-red
+  :warning: IDCFコントロール・パネル操作方法の詳細は、http://www.idcf.jp/help/cloud/guide/nw_portforward.htmlを参照
 
 ### 3. 仮想マシンにSSH接続する
 
