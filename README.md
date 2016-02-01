@@ -91,7 +91,8 @@ P9を参考にしてください。
   ```sh
 sudo add-apt-repository ppa:chris-lea/node.js 
 sudo apt-get update
-sudo apt-get install nodejs npm
+sudo apt-get install nodejs
+sudo apt-get install npm
 node -v
 v0.10.37
   ```
@@ -141,22 +142,6 @@ http://XXX.XXX.XXX.XXX:1880
 *停止ではDiskの課金はとまりません。完全に課金を止めたい場合は削除してください。 
 
 
-mqtt-broker node
-　Server 210.140.70.34
-　Port 1883
-
-天気情報
- UUID(Client ID) : d39eba6f-29a4-440b-83e2-728b55749f68
- Username: d39eba6f-29a4-440b-83e2-728b55749f68
- Token(Password): 8dc1bffc
-
-センサー情報 
- UUID(Client ID) : 3ae70879-83e2-49c8-9b6d-320f99bed601
- Username: 3ae70879-83e2-49c8-9b6d-320f99bed601
- Token(Password): 096709d8
- 
- 
- [{"id":"a7d4c441.582b38","type":"mqtt-broker","z":"c7365413.38c9a8","broker":"210.140.70.34","port":"1883","clientid":"3ae70879-83e2-49c8-9b6d-320f99bed601","usetls":false,"verifyservercert":true,"compatmode":true,"keepalive":"15","cleansession":true,"willTopic":"","willQos":"0","willRetain":null,"willPayload":"","birthTopic":"","birthQos":"0","birthRetain":null,"birthPayload":""},{"id":"f170f5c3.0e8f08","type":"mqtt-broker","z":"c7365413.38c9a8","broker":"210.140.70.34","port":"1883","clientid":"d39eba6f-29a4-440b-83e2-728b55749f68","usetls":false,"verifyservercert":true,"compatmode":true,"keepalive":"15","cleansession":true,"willTopic":"","willQos":"0","willRetain":null,"willPayload":"","birthTopic":"","birthQos":"0","birthRetain":null,"birthPayload":""},{"id":"97cb50a9.6834b","type":"mqtt in","z":"c7365413.38c9a8","name":"action-4","topic":"d39eba6f-29a4-440b-83e2-728b55749f68","broker":"f170f5c3.0e8f08","x":101.5,"y":393,"wires":[["26b9650c.d9469a"]]},{"id":"26b9650c.d9469a","type":"json","z":"c7365413.38c9a8","name":"parse","x":282.5,"y":395,"wires":[["cf3415c0.30cbe8","c79d6301.3862a"]]},{"id":"cf3415c0.30cbe8","type":"switch","z":"c7365413.38c9a8","name":"check_weather","property":"payload","propertyType":"msg","rules":[{"t":"regex","v":"雨","vt":"str","case":false},{"t":"else"}],"checkall":"true","outputs":2,"x":242.5,"y":556,"wires":[["a262d14c.5d9d3"],["54ad7856.ab5288"]]},{"id":"a262d14c.5d9d3","type":"e-mail","z":"c7365413.38c9a8","server":"smtp.gmail.com","port":"465","name":"mac008008@gmail.com","dname":"雨　イベント中止の連絡","x":561.5,"y":428,"wires":[]},{"id":"5d5195d6.a2ae6c","type":"comment","z":"c7365413.38c9a8","name":"天気情報","info":"","x":82.5,"y":349,"wires":[]},{"id":"62cca0b4.9d336","type":"comment","z":"c7365413.38c9a8","name":"温度センサー","info":"","x":99.5,"y":732,"wires":[]},{"id":"c79d6301.3862a","type":"debug","z":"c7365413.38c9a8","name":"記録","active":false,"console":"false","complete":"payload","x":450.5,"y":366,"wires":[]},{"id":"8cd42643.732bd8","type":"mqtt in","z":"c7365413.38c9a8","name":"action-3","topic":"3ae70879-83e2-49c8-9b6d-320f99bed601","broker":"a7d4c441.582b38","x":100.5,"y":801,"wires":[["6e28d325.91d72c","33c5c2bb.cc3a3e"]]},{"id":"54ad7856.ab5288","type":"e-mail","z":"c7365413.38c9a8","server":"smtp.gmail.com","port":"465","name":"mac008008@gmail.com","dname":"雨以外　イベント開催連絡","x":542.5,"y":581,"wires":[]},{"id":"72c372bc.8d3c8c","type":"function","z":"c7365413.38c9a8","name":"Convert Payload gyro","func":"var gyroX = msg.payload.d.gyroX;\nvar gyroY = msg.payload.d.gyroY;\nvar gyroZ = msg.payload.d.gyroZ;\n\nmsg.payload = {\n    x: gyroX,\n    y: gyroY,\n    z: gyroZ\n};\n\nreturn msg;","outputs":1,"noerr":0,"x":399.5,"y":670,"wires":[[]]},{"id":"73908249.8c6f7c","type":"switch","z":"c7365413.38c9a8","name":"","property":"payload.data.payload.objctTemperature","propertyType":"msg","rules":[{"t":"gte","v":"25","vt":"num"},{"t":"else"}],"checkall":"true","outputs":2,"x":360.5,"y":717,"wires":[["aa5b11e.f55a4f","b84a2823.47b5d8"],["121f2197.ede0de"]]},{"id":"121f2197.ede0de","type":"debug","z":"c7365413.38c9a8","name":"異常なし","active":true,"console":"false","complete":"payload","x":560.5,"y":779,"wires":[]},{"id":"6e28d325.91d72c","type":"json","z":"c7365413.38c9a8","name":"parse2","x":164.5,"y":884,"wires":[["73908249.8c6f7c"]]},{"id":"aa5b11e.f55a4f","type":"debug","z":"c7365413.38c9a8","name":"温度異常","active":true,"console":"false","complete":"payload","x":526.5,"y":711,"wires":[]},{"id":"33c5c2bb.cc3a3e","type":"debug","z":"c7365413.38c9a8","name":"","active":false,"console":"false","complete":"true","x":344.5,"y":842,"wires":[]},{"id":"b84a2823.47b5d8","type":"e-mail","z":"c7365413.38c9a8","server":"smtp.gmail.com","port":"465","name":"mac008008@gmail.com","dname":"異常メール","x":677.5,"y":659,"wires":[]}]
  
  
  
