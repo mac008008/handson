@@ -50,7 +50,7 @@
 
   ポートフォワード  
     ssh TCP 22 TCP 22 node-red  
-    nodered TCP 1880 TCP 1880 node-red  
+    nodered HTTP 80 TCP 1880 node-red  
 
  :information_source:  IDCFコントロール・パネル操作方法の詳細は、[こちら](http://www.idcf.jp/help/cloud/guide/nw_portforward.html)を参照  
 
