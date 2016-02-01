@@ -25,10 +25,8 @@
   1. データの保管
 
 ### 環境削除、停止
-
-####サーバの停止
-####サーバの削除
-
+  1. サーバの停止
+  1. サーバの削除
 
 ## 環境構築
 
@@ -41,7 +39,7 @@
     *ホスト名：node-red  
     *グループ名：任意  
       
-  :warning: IDCFコントロール・パネル操作方法の詳細は、http://www.idcf.jp/help/cloud/guide/vm_create.htmlを参照  
+  :information_source:  IDCFコントロール・パネル操作方法の詳細は、[こちら](http://www.idcf.jp/help/cloud/guide/vm_create.html)を参照  
 
 ### 2. サーバにセキュリティ設定をする
   ファイアウォール  
@@ -52,12 +50,11 @@
     ssh TCP 22 TCP 22 node-red  
     nodered TCP 1880 TCP 1880 node-red  
 
-  :warning: IDCFコントロール・パネル操作方法の詳細は、http://www.idcf.jp/help/cloud/guide/nw_portforward.htmlを参照  
+ :information_source:  IDCFコントロール・パネル操作方法の詳細は、[こちら](http://www.idcf.jp/help/cloud/guide/nw_portforward.html)を参照  
 
 ### 3. 仮想マシンにSSH接続する
 
 * #### Windowsの場合（Tera term使用時）
-http://osdn.jp/projects/ttssh2/downloads/64118/teraterm-4.89.exe/
 
   1. Tera termのDownload  [リンクはこちら](http://osdn.jp/projects/ttssh2/downloads/64118/teraterm-4.89.exe/)から  
   2. exeファイルの実行（Tera termのインストール）
@@ -65,7 +62,8 @@ http://osdn.jp/projects/ttssh2/downloads/64118/teraterm-4.89.exe/
   4. ホストに実行マシンのIPアドレスを入力  
   5. ユーザー名は「root」、秘密鍵にはVM作成時に使った秘密鍵を指定  
 
-  :warning: http://www.idcf.jp/help/cloud/guide/pdf/IDCFCloud_installation_guide.pdf
+  :information_source: 上記説明でよくわからない方は、[こちら](http://www.idcf.jp/help/cloud/guide/pdf/IDCFCloud_installation_guide.pdf)の
+P9を参考にしてください。  
 
 
 * #### Mac、Linuxの場合
