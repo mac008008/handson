@@ -138,7 +138,24 @@ http://XXX.XXX.XXX.XXX:1880
 2. 仮想マシンを選択。  
 3. 該当サーバの停止、削除を行います。  
   
-*停止ではDiskの課金はとまりません。完全に課金を止めたい場合は削除してください。  
+*停止ではDiskの課金はとまりません。完全に課金を止めたい場合は削除してください。 
+
+
+mqtt-broker node
+　Server 210.140.70.34
+　Port 1883
+
+天気情報
+ UUID(Client ID) : d39eba6f-29a4-440b-83e2-728b55749f68
+ Username: d39eba6f-29a4-440b-83e2-728b55749f68
+ Token(Password): 8dc1bffc
+
+センサー情報 
+ UUID(Client ID) : 3ae70879-83e2-49c8-9b6d-320f99bed601
+ Username: 3ae70879-83e2-49c8-9b6d-320f99bed601
+ Token(Password): 096709d8
+ 
+ 
 
 
 
